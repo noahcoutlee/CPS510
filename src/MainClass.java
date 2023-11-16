@@ -34,22 +34,33 @@ public class MainClass {
             System.out.println("Connected with connection #1");
         }
 
-        String query = "select DEPARTMENT_ID, NAME from DEPARTMENT";
+        String query = "select * from DEPARTMENT";
 
         try (Statement stmt = conn1.createStatement()) {
 
         ResultSet rs = stmt.executeQuery(query);
 
+        
         while (rs.next()) {
-                String name = rs.getString("DEPARTMENT_ID");
-                String num = rs.getString("NAME");
-                System.out.println(name + ", " + num);
+                
+                System.out.println(rs.getString(3) + ", " + rs.getString(2));
         }
         } catch (SQLException e) {
             System.out.println("JEFF");
                 System.out.println(e.getErrorCode());
         }
         
+        
+//        while (rs.next()) {
+//                String name = rs.getString("DEPARTMENT_ID");
+//                String num = rs.getString("NAME");
+//                System.out.println(name + ", " + num);
+//        }
+//        } catch (SQLException e) {
+//            System.out.println("JEFF");
+//                System.out.println(e.getErrorCode());
+//        }
+//        
         
         
         
