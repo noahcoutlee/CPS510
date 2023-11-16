@@ -9,18 +9,36 @@ import java.util.*;
  * CPS 510 Assignment - Payroll Management System
  * @author Bosko Pajkic, Noah Coutlee, Clay Barnett
  */
+
+
 public class MainClass {
+    // Declare Global Variables Here!
+    static String FirstName = "Bosko";
+    
+    
     
     
     public static void main(String[] args) {
-        System.out.println("Hello World");
-        
-        
-//        Put DataBase Code Here? Put in 
-        
-        LoginScreen loginScreen = new LoginScreen();
-        loginScreen.show();
+        // Put DataBase Code Here? Put in 
         
 
+        greet(FirstName);
+
+        FirstName = "Pajkic";
+        greet(FirstName);
+
+        //Shows First Screen
+        LoginScreen loginScreen = new LoginScreen();
+        loginScreen.show();
     }
+    
+    
+    
+    
+    // Put Functions Here
+    public static void greet(String message) {
+        System.out.println(message);
+    }
+    
+    
 }
