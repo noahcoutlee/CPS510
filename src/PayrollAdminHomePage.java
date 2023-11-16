@@ -7,12 +7,12 @@
  *
  * @author boskopajkic
  */
-public class EmployeeHomePage extends javax.swing.JFrame {
+public class PayrollAdminHomePage extends javax.swing.JFrame {
 
     /**
-     * Creates new form EmployeeHomePage
+     * Creates new form PayrollAdminHomePage
      */
-    public EmployeeHomePage() {
+    public PayrollAdminHomePage() {
         initComponents();
     }
 
@@ -25,17 +25,13 @@ public class EmployeeHomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TitleLabel = new javax.swing.JLabel();
         BackButton = new javax.swing.JButton();
         WelcomeLabel = new javax.swing.JLabel();
+        TitleLabel = new javax.swing.JLabel();
         ViewPaystubsButton = new javax.swing.JButton();
-        BankingInfoButton = new javax.swing.JButton();
         ViewT4sButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        TitleLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        TitleLabel.setText("Employee Home Page");
 
         BackButton.setText("Go Back");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
@@ -46,16 +42,17 @@ public class EmployeeHomePage extends javax.swing.JFrame {
 
         WelcomeLabel.setText("Welcome @Name,");
 
-        ViewPaystubsButton.setText("View Paystubs");
+        TitleLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        TitleLabel.setText("Payroll Admin Home Page");
+
+        ViewPaystubsButton.setText("Create Paystubs");
         ViewPaystubsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewPaystubsButtonActionPerformed(evt);
             }
         });
 
-        BankingInfoButton.setText("Banking Info");
-
-        ViewT4sButton.setText("View T4s");
+        ViewT4sButton.setText("Make Queries");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,17 +66,17 @@ public class EmployeeHomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(WelcomeLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(TitleLabel)
-                        .addGap(0, 105, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ViewPaystubsButton)
+                                    .addComponent(ViewT4sButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(TitleLabel)))
+                        .addGap(0, 88, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ViewT4sButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewPaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BankingInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,9 +91,7 @@ public class EmployeeHomePage extends javax.swing.JFrame {
                 .addComponent(ViewPaystubsButton)
                 .addGap(18, 18, 18)
                 .addComponent(ViewT4sButton)
-                .addGap(18, 18, 18)
-                .addComponent(BankingInfoButton)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,19 +100,14 @@ public class EmployeeHomePage extends javax.swing.JFrame {
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         LoginScreen loginScreen = new LoginScreen();
         loginScreen.show();
-        
+
         dispose();
-        
-        
+
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void ViewPaystubsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewPaystubsButtonActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_ViewPaystubsButtonActionPerformed
 
     /**
@@ -137,27 +127,26 @@ public class EmployeeHomePage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EmployeeHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PayrollAdminHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EmployeeHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PayrollAdminHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EmployeeHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PayrollAdminHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EmployeeHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PayrollAdminHomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeHomePage().setVisible(true);
+                new PayrollAdminHomePage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
-    private javax.swing.JButton BankingInfoButton;
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JButton ViewPaystubsButton;
     private javax.swing.JButton ViewT4sButton;

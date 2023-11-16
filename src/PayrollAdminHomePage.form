@@ -31,22 +31,24 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="WelcomeLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="TitleLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="105" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ViewPaystubsButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ViewT4sButton" min="-2" pref="127" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="TitleLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="88" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="ViewT4sButton" max="32767" attributes="0"/>
-                  <Component id="ViewPaystubsButton" max="32767" attributes="0"/>
-                  <Component id="BankingInfoButton" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,22 +66,12 @@
               <Component id="ViewPaystubsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="ViewT4sButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="BankingInfoButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="94" max="32767" attributes="0"/>
+              <EmptySpace pref="135" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="TitleLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Helvetica Neue" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Employee Home Page"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="BackButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Go Back"/>
@@ -93,22 +85,25 @@
         <Property name="text" type="java.lang.String" value="Welcome @Name,"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="TitleLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Payroll Admin Home Page"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="ViewPaystubsButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View Paystubs"/>
+        <Property name="text" type="java.lang.String" value="Create Paystubs"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewPaystubsButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BankingInfoButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Banking Info"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="ViewT4sButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="View T4s"/>
+        <Property name="text" type="java.lang.String" value="Make Queries"/>
       </Properties>
     </Component>
   </SubComponents>
