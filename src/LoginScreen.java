@@ -1,4 +1,8 @@
 
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+
 /**
  *
  * @author boskopajkic
@@ -40,6 +44,17 @@ public class LoginScreen extends javax.swing.JFrame {
 
         UserNameLabel.setText("Username:");
 
+        UserNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserNameTextFieldActionPerformed(evt);
+            }
+        });
+        UserNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UserNameTextFieldKeyPressed(evt);
+            }
+        });
+
         PasswordLabel.setText("Password:");
 
         TitleLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -47,38 +62,52 @@ public class LoginScreen extends javax.swing.JFrame {
 
         InvalidLoginLabel.setForeground(new java.awt.Color(255, 51, 51));
 
+        PasswordPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordPasswordFieldActionPerformed(evt);
+            }
+        });
+        PasswordPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PasswordPasswordFieldKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addComponent(TitleLabel)
-                .addGap(90, 90, 90))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UserNameTextField)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PasswordLabel)
-                            .addComponent(UserNameLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(PasswordPasswordField, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                        .addGap(141, 141, 141)
+                        .addComponent(TitleLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(loginButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(InvalidLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(145, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(159, 159, 159)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginButton)
-                    .addComponent(InvalidLoginLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(PasswordPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                            .addComponent(UserNameLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UserNameTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(15, 15, 15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PasswordLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(TitleLabel)
-                .addGap(18, 18, 18)
+                .addGap(57, 57, 57)
                 .addComponent(UserNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -86,48 +115,112 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addComponent(PasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PasswordPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(InvalidLoginLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(InvalidLoginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(loginButton)
-                .addGap(28, 28, 28))
+                .addGap(141, 141, 141))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
-    
-    
+
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-
+        boolean loginAllowed = attemptLogin(UserNameTextField.getText(), PasswordPasswordField.getText());
         
-        InvalidLoginLabel.setText("Invalid Login Credentials");
-        
-        MainClass.FirstName = "Noah";
-        
-        MainClass.greet(MainClass.FirstName);
-        
-        
-        MainClass.greet(PasswordPasswordField.getText());
-        
-        // OPENS NEW WINDOW
-        EmployeeHomePage employeeHomePage = new EmployeeHomePage();
-        employeeHomePage.show();
-        dispose(); // CLOSES CURRENT WINDOW
+        if (loginAllowed) {
+            // OPENS NEW WINDOW
+            EmployeeHomePage employeeHomePage = new EmployeeHomePage();
+            employeeHomePage.show();
+            dispose(); // CLOSES CURRENT WINDOW
+        } else {
+            InvalidLoginLabel.setText("Invalid Login Credentials"); 
+        }   
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    
-    
-    
-    
-    
-    
-    
-    
+    private void PasswordPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordPasswordFieldActionPerformed
+        // TODO add your handling code here:
+        boolean loginAllowed = attemptLogin(UserNameTextField.getText(), PasswordPasswordField.getText());
+        if (loginAllowed) {
+            // OPENS NEW WINDOW
+            EmployeeHomePage employeeHomePage = new EmployeeHomePage();
+            employeeHomePage.show();
+            dispose(); // CLOSES CURRENT WINDOW
+        } else {
+            InvalidLoginLabel.setText("Invalid Login Credentials"); 
+        }   
+    }//GEN-LAST:event_PasswordPasswordFieldActionPerformed
+
+    private void PasswordPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordPasswordFieldKeyPressed
+        // TODO add your handling code here:
+        InvalidLoginLabel.setText(""); 
+    }//GEN-LAST:event_PasswordPasswordFieldKeyPressed
+
+    private void UserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextFieldActionPerformed
+        // TODO add your handling code here:
+        boolean loginAllowed = attemptLogin(UserNameTextField.getText(), PasswordPasswordField.getText());
+        if (loginAllowed) {
+            // OPENS NEW WINDOW
+            EmployeeHomePage employeeHomePage = new EmployeeHomePage();
+            employeeHomePage.show();
+            dispose(); // CLOSES CURRENT WINDOW
+        } else {
+            InvalidLoginLabel.setText("Invalid Login Credentials"); 
+        }   
+    }//GEN-LAST:event_UserNameTextFieldActionPerformed
+
+    private void UserNameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserNameTextFieldKeyPressed
+        // TODO add your handling code here:
+        InvalidLoginLabel.setText(""); 
+    }//GEN-LAST:event_UserNameTextFieldKeyPressed
+
+    public static boolean attemptLogin(String username, String password) {
+        boolean loginAllowed = false;
+        try {
+            Statement stmt = MainClass.connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from EMPLOYEE WHERE USERNAME LIKE '" + username + "' AND PASSWORD LIKE '" + password +"'");
+            if (rs != null) {
+                while (rs.next()) {
+                    System.out.println("User Found: " + rs.getString("FIRST_NAME"));
+                    
+                    MainClass.loggedInEmployee.EMPLOYEE_ID = rs.getInt("EMPLOYEE_ID");
+                    MainClass.loggedInEmployee.DEPARTMENT_ID = rs.getInt("DEPARTMENT_ID");
+                    MainClass.loggedInEmployee.FIRST_NAME = rs.getString("FIRST_NAME");
+                    MainClass.loggedInEmployee.LAST_NAME = rs.getString("LAST_NAME");
+                    MainClass.loggedInEmployee.DATE_OF_BIRTH = rs.getString("DATE_OF_BIRTH");
+                    MainClass.loggedInEmployee.SIN_NUMBER = rs.getInt("SIN_NUMBER");
+                    MainClass.loggedInEmployee.DATE_HIRED = rs.getString("DATE_HIRED");
+                    MainClass.loggedInEmployee.PAYROLL_TYPE = rs.getString("PAYROLL_TYPE");
+                    MainClass.loggedInEmployee.SALARY = rs.getDouble("SALARY");
+                    MainClass.loggedInEmployee.VAC_DAYS_TOTAL = rs.getInt("VAC_DAYS_TOTAL");
+                    MainClass.loggedInEmployee.VAC_DAYS_LEFT = rs.getInt("VAC_DAYS_LEFT");
+                    MainClass.loggedInEmployee.SICK_DAYS_TOTAL = rs.getInt("SICK_DAYS_TOTAL");
+                    MainClass.loggedInEmployee.SICK_DAYS_LEFT = rs.getInt("SICK_DAYS_LEFT");
+                    MainClass.loggedInEmployee.PERS_DAYS_TOTAL = rs.getInt("PERS_DAYS_TOTAL");
+                    MainClass.loggedInEmployee.PERS_DAYS_LEFT = rs.getInt("PERS_DAYS_LEFT");
+                    MainClass.loggedInEmployee.USERNAME = rs.getString("USERNAME");
+                    MainClass.loggedInEmployee.PASSWORD = rs.getString("PASSWORD");
+                    MainClass.loggedInEmployee.BANK_ID = rs.getInt("BANK_ID");
+                    MainClass.loggedInEmployee.BRANCH_NUMBER = rs.getInt("BRANCH_NUMBER");
+                    MainClass.loggedInEmployee.ACCOUNT_NUMBER = rs.getInt("ACCOUNT_NUMBER");
+
+                    
+                    loginAllowed = true;
+                }
+            } else {
+                System.out.println("Query Null");
+            }
+        } catch (SQLException e) {
+            System.out.print("Failed to Execute Statement: ");
+            System.out.println(e.getErrorCode());
+            e.printStackTrace();
+        }
+        
+        return loginAllowed;
+        
+    }
     
     
     
@@ -157,7 +250,7 @@ public class LoginScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

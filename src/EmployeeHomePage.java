@@ -33,6 +33,11 @@ public class EmployeeHomePage extends javax.swing.JFrame {
         ViewT4sButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         TitleLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         TitleLabel.setText("Employee Home Page");
@@ -69,16 +74,16 @@ public class EmployeeHomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(WelcomeLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
+                        .addGap(154, 154, 154)
                         .addComponent(TitleLabel)
-                        .addGap(0, 105, Short.MAX_VALUE)))
+                        .addGap(0, 153, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(184, 184, 184)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(BankingInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ViewT4sButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewPaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BankingInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ViewPaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,15 +93,15 @@ public class EmployeeHomePage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackButton)
                     .addComponent(WelcomeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(TitleLabel)
-                .addGap(43, 43, 43)
+                .addGap(30, 30, 30)
                 .addComponent(ViewPaystubsButton)
                 .addGap(18, 18, 18)
                 .addComponent(ViewT4sButton)
                 .addGap(18, 18, 18)
                 .addComponent(BankingInfoButton)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,6 +124,11 @@ public class EmployeeHomePage extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_ViewPaystubsButtonActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here: 
+        WelcomeLabel.setText("Welcome, " + MainClass.loggedInEmployee.FIRST_NAME);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

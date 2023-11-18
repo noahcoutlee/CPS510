@@ -1,12 +1,6 @@
 import java.io.*;
 import java.util.*;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.util.Properties;
+import java.sql.*;
 
 //import java.util.Scanner;
 
@@ -15,74 +9,52 @@ import java.util.Properties;
  * @author Bosko Pajkic, Noah Coutlee, Clay Barnett
  */
 
+class Employee {
+    int EMPLOYEE_ID;
+    int DEPARTMENT_ID;
+    String FIRST_NAME;
+    String LAST_NAME;
+    String DATE_OF_BIRTH;
+    int SIN_NUMBER;
+    String DATE_HIRED;
+    String PAYROLL_TYPE;
+    double SALARY;
+    int VAC_DAYS_TOTAL;
+    int VAC_DAYS_LEFT;
+    int SICK_DAYS_TOTAL;
+    int SICK_DAYS_LEFT;
+    int PERS_DAYS_TOTAL;
+    int PERS_DAYS_LEFT;
+    String USERNAME;
+    String PASSWORD;
+    int BANK_ID;
+    int BRANCH_NUMBER;
+    int ACCOUNT_NUMBER;
+}
 
 public class MainClass {
-    // Declare Global Variables Here!
-    static String FirstName = "Bosko";
-    
-    
+    // Declare Global Variables Here!												
+    static Connection connection;
+    static Employee loggedInEmployee = new Employee();
     
     
     public static void main(String[] args) throws SQLException {
-        // Put DataBase Code Here? Put in 
-        Connection conn1 = null;
-
-        String dbURL1 = "jdbc:oracle:thin:vcbarnet/01065145@oracle12c.scs.ryerson.ca:1521:orcl12c";  // that is school Oracle database and you can only use it in the labs
-																						
-	conn1 = DriverManager.getConnection(dbURL1);
-        if (conn1 != null) {
-            System.out.println("Connected with connection #1");
-        }
-
-        String query = "select * from DEPARTMENT";
-
-        try (Statement stmt = conn1.createStatement()) {
-
-        ResultSet rs = stmt.executeQuery(query);
-
-        
-        while (rs.next()) {
-                
-                System.out.println(rs.getString(3) + ", " + rs.getString(2));
-        }
-        } catch (SQLException e) {
-            System.out.println("JEFF");
-                System.out.println(e.getErrorCode());
+        connection = DriverManager.getConnection("jdbc:oracle:thin:vcbarnet/01065145@oracle12c.scs.ryerson.ca:1521:orcl12c");
+        if (connection != null) {
+            System.out.println("Connected to Database");
         }
         
         
-//        while (rs.next()) {
-//                String name = rs.getString("DEPARTMENT_ID");
-//                String num = rs.getString("NAME");
-//                System.out.println(name + ", " + num);
-//        }
-//        } catch (SQLException e) {
-//            System.out.println("JEFF");
-//                System.out.println(e.getErrorCode());
-//        }
-//        
-        
-        
-        
-        
-
-//        greet(FirstName);
-//
-//        FirstName = "Pajkic";
-//        greet(FirstName);
-
         //Shows First Screen
         LoginScreen loginScreen = new LoginScreen();
         loginScreen.show();
     }
     
+
     
-    
-    
-    // Put Functions Here
-    public static void greet(String message) {
-        System.out.println(message);
-    }
+    // Put Global Functions Here
     
     
 }
+
+
