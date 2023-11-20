@@ -14,6 +14,7 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
      */
     public PayrollAdminHomePage() {
         initComponents();
+        WelcomeLabel.setText("Welcome, " + MainClass.loggedInEmployee.FIRST_NAME);
     }
 
     /**

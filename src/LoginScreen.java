@@ -132,9 +132,17 @@ public class LoginScreen extends javax.swing.JFrame {
         
         if (loginAllowed) {
             // OPENS NEW WINDOW
-            EmployeeHomePage employeeHomePage = new EmployeeHomePage();
-            employeeHomePage.show();
-            dispose(); // CLOSES CURRENT WINDOW
+            if (MainClass.loggedInEmployee.IS_ADMIN == 1) {
+                PayrollAdminHomePage payrollAdminHomePage = new PayrollAdminHomePage();
+                payrollAdminHomePage.show();
+                dispose();
+            }
+            else {
+                EmployeeHomePage employeeHomePage = new EmployeeHomePage();
+                employeeHomePage.show();
+                dispose(); // CLOSES CURRENT WINDOW
+            }
+            
         } else {
             InvalidLoginLabel.setText("Invalid Login Credentials"); 
         }   
@@ -161,12 +169,18 @@ public class LoginScreen extends javax.swing.JFrame {
     private void UserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextFieldActionPerformed
         // TODO add your handling code here:
         boolean loginAllowed = attemptLogin(UserNameTextField.getText(), PasswordPasswordField.getText());
-        if (loginAllowed) {
+        if (loginAllowed && MainClass.loggedInEmployee.IS_ADMIN == 0) {
             // OPENS NEW WINDOW
             EmployeeHomePage employeeHomePage = new EmployeeHomePage();
             employeeHomePage.show();
             dispose(); // CLOSES CURRENT WINDOW
-        } else {
+        }
+        else if (loginAllowed && MainClass.loggedInEmployee.IS_ADMIN == 1) {
+            PayrollAdminHomePage adminHomePage = new PayrollAdminHomePage();
+            adminHomePage.show();
+            dispose();
+        }
+        else {
             InvalidLoginLabel.setText("Invalid Login Credentials"); 
         }   
     }//GEN-LAST:event_UserNameTextFieldActionPerformed
@@ -205,8 +219,8 @@ public class LoginScreen extends javax.swing.JFrame {
                     MainClass.loggedInEmployee.BANK_ID = rs.getInt("BANK_ID");
                     MainClass.loggedInEmployee.BRANCH_NUMBER = rs.getInt("BRANCH_NUMBER");
                     MainClass.loggedInEmployee.ACCOUNT_NUMBER = rs.getInt("ACCOUNT_NUMBER");
-
-                    
+                    MainClass.loggedInEmployee.IS_ADMIN = rs.getInt("IS_ADMIN"); 
+                    MainClass.loggedInEmployee.rs_emp = rs;              
                     loginAllowed = true;
                 }
             } else {

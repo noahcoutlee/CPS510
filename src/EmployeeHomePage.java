@@ -59,6 +59,11 @@ public class EmployeeHomePage extends javax.swing.JFrame {
         });
 
         BankingInfoButton.setText("Banking Info");
+        BankingInfoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BankingInfoButtonActionPerformed(evt);
+            }
+        });
 
         ViewT4sButton.setText("View T4s");
 
@@ -129,6 +134,13 @@ public class EmployeeHomePage extends javax.swing.JFrame {
         // TODO add your handling code here: 
         WelcomeLabel.setText("Welcome, " + MainClass.loggedInEmployee.FIRST_NAME);
     }//GEN-LAST:event_formWindowOpened
+
+    private void BankingInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BankingInfoButtonActionPerformed
+        // TODO add your handling code here:
+        EmpBankInfo empBankInfo = new EmpBankInfo();
+        empBankInfo.show();
+        dispose();
+    }//GEN-LAST:event_BankingInfoButtonActionPerformed
 
     /**
      * @param args the command line arguments

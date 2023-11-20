@@ -30,6 +30,8 @@ class Employee {
     int BANK_ID;
     int BRANCH_NUMBER;
     int ACCOUNT_NUMBER;
+    int IS_ADMIN;
+    ResultSet rs_emp;
 }
 
 public class MainClass {
