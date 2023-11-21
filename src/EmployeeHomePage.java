@@ -123,10 +123,9 @@ public class EmployeeHomePage extends javax.swing.JFrame {
 
     private void ViewPaystubsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewPaystubsButtonActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-        
+        EmpPaystubs empPaystubs = new EmpPaystubs();
+        empPaystubs.show();
+        dispose();
         
     }//GEN-LAST:event_ViewPaystubsButtonActionPerformed
 
