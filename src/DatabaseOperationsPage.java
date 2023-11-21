@@ -1,4 +1,7 @@
 
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+// import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /*
@@ -129,6 +132,45 @@ public class DatabaseOperationsPage extends javax.swing.JFrame {
 
     private void DropTablesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropTablesButtonActionPerformed
         JOptionPane.showMessageDialog(null, "Successfully DROPPED tables!");
+//        try {
+//            Statement stmt = MainClass.connection.createStatement();
+//            ResultSet rs = stmt.executeQuery("DROP TABLE PAYSTUB CASCADE CONSTRAINTS");
+//            if (rs != null) {
+//                while (rs.next()) {
+//                    System.out.println("User Found: " + rs.getString("FIRST_NAME"));
+//                    
+//                    MainClass.loggedInEmployee.EMPLOYEE_ID = rs.getInt("EMPLOYEE_ID");
+//                    MainClass.loggedInEmployee.DEPARTMENT_ID = rs.getInt("DEPARTMENT_ID");
+//                    MainClass.loggedInEmployee.FIRST_NAME = rs.getString("FIRST_NAME");
+//                    MainClass.loggedInEmployee.LAST_NAME = rs.getString("LAST_NAME");
+//                    MainClass.loggedInEmployee.DATE_OF_BIRTH = rs.getString("DATE_OF_BIRTH");
+//                    MainClass.loggedInEmployee.SIN_NUMBER = rs.getInt("SIN_NUMBER");
+//                    MainClass.loggedInEmployee.DATE_HIRED = rs.getString("DATE_HIRED");
+//                    MainClass.loggedInEmployee.PAYROLL_TYPE = rs.getString("PAYROLL_TYPE");
+//                    MainClass.loggedInEmployee.SALARY = rs.getDouble("SALARY");
+//                    MainClass.loggedInEmployee.VAC_DAYS_TOTAL = rs.getInt("VAC_DAYS_TOTAL");
+//                    MainClass.loggedInEmployee.VAC_DAYS_LEFT = rs.getInt("VAC_DAYS_LEFT");
+//                    MainClass.loggedInEmployee.SICK_DAYS_TOTAL = rs.getInt("SICK_DAYS_TOTAL");
+//                    MainClass.loggedInEmployee.SICK_DAYS_LEFT = rs.getInt("SICK_DAYS_LEFT");
+//                    MainClass.loggedInEmployee.PERS_DAYS_TOTAL = rs.getInt("PERS_DAYS_TOTAL");
+//                    MainClass.loggedInEmployee.PERS_DAYS_LEFT = rs.getInt("PERS_DAYS_LEFT");
+//                    MainClass.loggedInEmployee.USERNAME = rs.getString("USERNAME");
+//                    MainClass.loggedInEmployee.PASSWORD = rs.getString("PASSWORD");
+//                    MainClass.loggedInEmployee.BANK_ID = rs.getInt("BANK_ID");
+//                    MainClass.loggedInEmployee.BRANCH_NUMBER = rs.getInt("BRANCH_NUMBER");
+//                    MainClass.loggedInEmployee.ACCOUNT_NUMBER = rs.getInt("ACCOUNT_NUMBER");
+//                    MainClass.loggedInEmployee.IS_ADMIN = rs.getInt("IS_ADMIN"); 
+//                    MainClass.loggedInEmployee.rs_emp = rs;              
+//                    loginAllowed = true;
+//                }
+//            } else {
+//                System.out.println("Query Null");
+//            }
+//        } catch (SQLException e) {
+//            System.out.print("Failed to Execute Statement: ");
+//            System.out.println(e.getErrorCode());
+//            e.printStackTrace();
+//        }
     }//GEN-LAST:event_DropTablesButtonActionPerformed
 
     private void PopulateTablesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PopulateTablesButtonActionPerformed
