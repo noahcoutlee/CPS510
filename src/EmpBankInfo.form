@@ -113,9 +113,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="branchField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="branchField"/>
       </AccessibilityProperties>
@@ -129,9 +126,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="bankIDField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="bankIDField"/>
       </AccessibilityProperties>

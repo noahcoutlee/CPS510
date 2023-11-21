@@ -44,6 +44,8 @@ public class LoginScreen extends javax.swing.JFrame {
 
         UserNameLabel.setText("Username:");
 
+        UserNameTextField.setText("ivanstepanov");
+        UserNameTextField.setToolTipText("");
         UserNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserNameTextFieldActionPerformed(evt);
@@ -62,6 +64,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
         InvalidLoginLabel.setForeground(new java.awt.Color(255, 51, 51));
 
+        PasswordPasswordField.setText("secret456");
         PasswordPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordPasswordFieldActionPerformed(evt);
@@ -149,44 +152,18 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void PasswordPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordPasswordFieldActionPerformed
-        // TODO add your handling code here:
-        boolean loginAllowed = attemptLogin(UserNameTextField.getText(), PasswordPasswordField.getText());
-        if (loginAllowed) {
-            // OPENS NEW WINDOW
-            EmployeeHomePage employeeHomePage = new EmployeeHomePage();
-            employeeHomePage.show();
-            dispose(); // CLOSES CURRENT WINDOW
-        } else {
-            InvalidLoginLabel.setText("Invalid Login Credentials"); 
-        }   
+        loginButtonActionPerformed(evt);
     }//GEN-LAST:event_PasswordPasswordFieldActionPerformed
 
     private void PasswordPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PasswordPasswordFieldKeyPressed
-        // TODO add your handling code here:
         InvalidLoginLabel.setText(""); 
     }//GEN-LAST:event_PasswordPasswordFieldKeyPressed
 
     private void UserNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextFieldActionPerformed
-        // TODO add your handling code here:
-        boolean loginAllowed = attemptLogin(UserNameTextField.getText(), PasswordPasswordField.getText());
-        if (loginAllowed && MainClass.loggedInEmployee.IS_ADMIN == 0) {
-            // OPENS NEW WINDOW
-            EmployeeHomePage employeeHomePage = new EmployeeHomePage();
-            employeeHomePage.show();
-            dispose(); // CLOSES CURRENT WINDOW
-        }
-        else if (loginAllowed && MainClass.loggedInEmployee.IS_ADMIN == 1) {
-            PayrollAdminHomePage adminHomePage = new PayrollAdminHomePage();
-            adminHomePage.show();
-            dispose();
-        }
-        else {
-            InvalidLoginLabel.setText("Invalid Login Credentials"); 
-        }   
+        loginButtonActionPerformed(evt);
     }//GEN-LAST:event_UserNameTextFieldActionPerformed
 
     private void UserNameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserNameTextFieldKeyPressed
-        // TODO add your handling code here:
         InvalidLoginLabel.setText(""); 
     }//GEN-LAST:event_UserNameTextFieldKeyPressed
 

@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -29,10 +32,12 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
         WelcomeLabel = new javax.swing.JLabel();
         TitleLabel = new javax.swing.JLabel();
-        ViewPaystubsButton = new javax.swing.JButton();
-        ViewT4sButton = new javax.swing.JButton();
+        CreatePaystubsButton = new javax.swing.JButton();
+        MakeQueriesButton = new javax.swing.JButton();
+        DatabaseOperationsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(500, 500));
 
         BackButton.setText("Go Back");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
@@ -46,14 +51,26 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
         TitleLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         TitleLabel.setText("Payroll Admin Home Page");
 
-        ViewPaystubsButton.setText("Create Paystubs");
-        ViewPaystubsButton.addActionListener(new java.awt.event.ActionListener() {
+        CreatePaystubsButton.setText("Create Paystubs");
+        CreatePaystubsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewPaystubsButtonActionPerformed(evt);
+                CreatePaystubsButtonActionPerformed(evt);
             }
         });
 
-        ViewT4sButton.setText("Make Queries");
+        MakeQueriesButton.setText("Make Queries");
+        MakeQueriesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MakeQueriesButtonActionPerformed(evt);
+            }
+        });
+
+        DatabaseOperationsButton.setText("Database Operations");
+        DatabaseOperationsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DatabaseOperationsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,16 +84,17 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(WelcomeLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ViewPaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ViewT4sButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(137, 137, 137)
+                        .addComponent(TitleLabel)
+                        .addGap(0, 130, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(TitleLabel)
-                .addContainerGap(141, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CreatePaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MakeQueriesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DatabaseOperationsButton))
+                .addGap(180, 180, 180))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,11 +105,13 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
                     .addComponent(WelcomeLabel))
                 .addGap(18, 18, 18)
                 .addComponent(TitleLabel)
-                .addGap(31, 31, 31)
-                .addComponent(ViewPaystubsButton)
+                .addGap(34, 34, 34)
+                .addComponent(CreatePaystubsButton)
                 .addGap(18, 18, 18)
-                .addComponent(ViewT4sButton)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addComponent(MakeQueriesButton)
+                .addGap(18, 18, 18)
+                .addComponent(DatabaseOperationsButton)
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,10 +125,21 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BackButtonActionPerformed
 
-    private void ViewPaystubsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewPaystubsButtonActionPerformed
+    private void CreatePaystubsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreatePaystubsButtonActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_ViewPaystubsButtonActionPerformed
+    }//GEN-LAST:event_CreatePaystubsButtonActionPerformed
+
+    private void DatabaseOperationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatabaseOperationsButtonActionPerformed
+        DatabaseOperationsPage databaseScreen = new DatabaseOperationsPage();
+        databaseScreen.show();
+
+        dispose();
+    }//GEN-LAST:event_DatabaseOperationsButtonActionPerformed
+
+    private void MakeQueriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakeQueriesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MakeQueriesButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,9 +178,10 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
+    private javax.swing.JButton CreatePaystubsButton;
+    private javax.swing.JButton DatabaseOperationsButton;
+    private javax.swing.JButton MakeQueriesButton;
     private javax.swing.JLabel TitleLabel;
-    private javax.swing.JButton ViewPaystubsButton;
-    private javax.swing.JButton ViewT4sButton;
     private javax.swing.JLabel WelcomeLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,7 +54,6 @@ public class EmpBankInfo extends javax.swing.JFrame {
 
         label1.setText("Account Number");
 
-        branchField.setText("jTextField1");
         branchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 branchFieldActionPerformed(evt);
@@ -63,7 +62,6 @@ public class EmpBankInfo extends javax.swing.JFrame {
 
         label2.setText("Branch Number");
 
-        bankIDField.setText("jTextField1");
         bankIDField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bankIDFieldActionPerformed(evt);
