@@ -28,6 +28,9 @@ public class EmpPaystubs extends javax.swing.JFrame {
         tableModel.addColumn("Gross Amount");
         tableModel.addColumn("Tax Federal");
         tableModel.addColumn("Tax Provincial");
+        tableModel.addColumn("CPP");
+        tableModel.addColumn("EI");
+        tableModel.addColumn("Net Amount");
 
         // Add rows to the model
         for (Paystub paystub : paystubs) {
@@ -35,7 +38,10 @@ public class EmpPaystubs extends javax.swing.JFrame {
                     paystub.getPayDate(),
                     paystub.getGrossAmount(),
                     paystub.getTaxFederal(),
-                    paystub.getTaxProvincial()
+                    paystub.getTaxProvincial(),
+                    paystub.getCPP(),
+                    paystub.getEI(),
+                    paystub.getNetAmount()
             };
             tableModel.addRow(rowData);
         }
@@ -149,7 +155,7 @@ public class EmpPaystubs extends javax.swing.JFrame {
 
     private List<Paystub> getPaystubsFromDatabase() {
         List<Paystub> paystubs = new ArrayList<>();
-        String sql = "SELECT pay_date, gross_amount, tax_federal, tax_provincial " +
+        String sql = "SELECT pay_date, gross_amount, tax_federal, tax_provincial, CPP, EI, net_amount " +
                          "FROM all_employee_paystub_view " +
                          "WHERE employee_id = ?";
             try (PreparedStatement preparedStatement = MainClass.connection.prepareStatement(sql)) {
@@ -160,8 +166,10 @@ public class EmpPaystubs extends javax.swing.JFrame {
                         float grossAmount = resultSet.getFloat("gross_amount");
                         float taxFederal = resultSet.getFloat("tax_federal");
                         float taxProvincial = resultSet.getFloat("tax_provincial");
-
-                        Paystub paystub = new Paystub(payDate, grossAmount, taxFederal, taxProvincial);
+                        float CPP = resultSet.getFloat("CPP");
+                        float EI = resultSet.getFloat("EI");
+                        float netAmount = resultSet.getFloat("net_amount");
+                        Paystub paystub = new Paystub(payDate, grossAmount, taxFederal, taxProvincial, CPP, EI, netAmount);
                         paystubs.add(paystub);
                     }
                 }
