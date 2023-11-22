@@ -255,48 +255,59 @@ public class DatabaseOperationsPage extends javax.swing.JFrame {
                 "    INTO TAX_BRACKET (TB_ID, YEAR, REGION, LOWER_AMOUNT, UPPER_AMOUNT, TAX_RATE) VALUES (39, 2023, 'Ontario', 45000, 79999, 27)\n" +
                 "    INTO TAX_BRACKET (TB_ID, YEAR, REGION, LOWER_AMOUNT, UPPER_AMOUNT, TAX_RATE) VALUES (40, 2023, 'Ontario', 80000, 999999999, 33) SELECT * FROM dual");
             stmt.executeUpdate("INSERT ALL\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (1, 1, TO_DATE('2022-11-18','YYYY-MM-DD'), 2000, 250, 300, 100, 100, 1250, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (2, 1, TO_DATE('2022-12-02','YYYY-MM-DD'), 2000, 250, 300, 100, 100, 1250, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (3, 1, TO_DATE('2022-12-16','YYYY-MM-DD'), 2000, 250, 300, 100, 100, 1250, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (4, 1, TO_DATE('2022-12-30','YYYY-MM-DD'), 2500, 300, 350, 150, 125, 1575, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (5, 1, TO_DATE('2023-01-13','YYYY-MM-DD'), 2500, 300, 350, 150, 125, 1575, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (6, 1, TO_DATE('2023-01-27','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (7, 1, TO_DATE('2023-02-10','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (8, 1, TO_DATE('2023-02-24','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (9, 1, TO_DATE('2023-03-10','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (10, 1, TO_DATE('2023-03-24','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (11, 1, TO_DATE('2023-04-07','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (12, 1, TO_DATE('2023-04-21','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (13, 1, TO_DATE('2023-05-05','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (14, 1, TO_DATE('2023-05-19','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (15, 1, TO_DATE('2023-06-02','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (16, 1, TO_DATE('2023-06-16','YYYY-MM-DD'), 2600, 310, 350, 155, 130, 1655, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (17, 1, TO_DATE('2023-06-30','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (18, 1, TO_DATE('2023-07-14','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (19, 1, TO_DATE('2023-07-28','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (20, 1, TO_DATE('2023-08-11','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (21, 1, TO_DATE('2023-08-25','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (22, 1, TO_DATE('2023-09-08','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (23, 1, TO_DATE('2023-09-22','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (24, 1, TO_DATE('2023-10-06','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (25, 1, TO_DATE('2023-10-20','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited')\n" +
-                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, TAX_FED, TAX_PROV, CPP, EI, NET_AMOUNT, HOURS, STATUS) VALUES (26, 1, TO_DATE('2023-11-03','YYYY-MM-DD'), 2650, 310, 350, 160, 135, 1705, 40, 'Deposited') SELECT * FROM dual");
-            stmt.executeUpdate("INSERT INTO PAYSTUB_CALCULATED (YEAR, GROSS_AMOUNT, TAX_FEDERAL, TAX_PROVINCIAL)\n" +
-                "    SELECT\n" +
-                "        EXTRACT(YEAR FROM MAX(p.pay_date)) AS year,\n" +
-                "        p.gross_amount,\n" +
-                "        ROUND(SUM(CASE WHEN tb.region = 'Federal' AND tb.LOWER_AMOUNT / 26 < p.gross_amount THEN\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (1, 1, TO_DATE('2022-11-18','YYYY-MM-DD'), 2000, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (2, 1, TO_DATE('2022-12-02','YYYY-MM-DD'), 2000, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (3, 1, TO_DATE('2022-12-16','YYYY-MM-DD'), 2000, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (4, 1, TO_DATE('2022-12-30','YYYY-MM-DD'), 2500, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (5, 1, TO_DATE('2023-01-13','YYYY-MM-DD'), 2500, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (6, 1, TO_DATE('2023-01-27','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (7, 1, TO_DATE('2023-02-10','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (8, 1, TO_DATE('2023-02-24','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (9, 1, TO_DATE('2023-03-10','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (10, 1, TO_DATE('2023-03-24','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (11, 1, TO_DATE('2023-04-07','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (12, 1, TO_DATE('2023-04-21','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (13, 1, TO_DATE('2023-05-05','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (14, 1, TO_DATE('2023-05-19','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (15, 1, TO_DATE('2023-06-02','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (16, 1, TO_DATE('2023-06-16','YYYY-MM-DD'), 2600, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (17, 1, TO_DATE('2023-06-30','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (18, 1, TO_DATE('2023-07-14','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (19, 1, TO_DATE('2023-07-28','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (20, 1, TO_DATE('2023-08-11','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (21, 1, TO_DATE('2023-08-25','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (22, 1, TO_DATE('2023-09-08','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (23, 1, TO_DATE('2023-09-22','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (24, 1, TO_DATE('2023-10-06','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (25, 1, TO_DATE('2023-10-20','YYYY-MM-DD'), 2650, 40, 'Deposited')\n" +
+                "    INTO PAYSTUB (PAYSTUB_ID, EMPLOYEE_ID, PAY_DATE, GROSS_AMOUNT, HOURS, STATUS) VALUES (26, 1, TO_DATE('2023-11-03','YYYY-MM-DD'), 2650, 40, 'Deposited') SELECT * FROM dual");
+            stmt.executeUpdate("INSERT INTO PAYSTUB_CALCULATED (YEAR, GROSS_AMOUNT, TAX_FEDERAL, TAX_PROVINCIAL, CPP, EI, NET_AMOUNT)\n" +
+                "SELECT\n" +
+                "    EXTRACT(YEAR FROM MAX(p.pay_date)) AS year,\n" +
+                "    p.gross_amount,\n" +
+                "    ROUND(SUM(CASE WHEN tb.region = 'Federal' AND tb.LOWER_AMOUNT / 26 < p.gross_amount THEN\n" +
+                "            ((p.gross_amount - tb.LOWER_AMOUNT / 26) * tb.TAX_RATE) / 100\n" +
+                "        ELSE 0 END) / COUNT(*), 2) AS tax_federal,\n" +
+                "    ROUND(SUM(CASE WHEN tb.region = 'Ontario' AND tb.LOWER_AMOUNT / 26 < p.gross_amount THEN\n" +
+                "            ((p.gross_amount - tb.LOWER_AMOUNT / 26) * tb.TAX_RATE) / 100\n" +
+                "        ELSE 0 END) / COUNT(*), 2) AS tax_provincial,\n" +
+                "    ROUND(0.057 * GREATEST(p.gross_amount * 26, 61400) / 26, 2) AS cpp,\n" +
+                "    ROUND(0.0158 * GREATEST(p.gross_amount * 26, 60300) / 26, 2) AS ei,\n" +
+                "    ROUND(p.gross_amount -\n" +
+                "        SUM(CASE WHEN tb.region = 'Federal' AND tb.LOWER_AMOUNT / 26 < p.gross_amount THEN\n" +
                 "                ((p.gross_amount - tb.LOWER_AMOUNT / 26) * tb.TAX_RATE) / 100\n" +
-                "            ELSE 0 END) / COUNT(), 2) AS tax_federal,\n" +
-                "        ROUND(SUM(CASE WHEN tb.region = 'Ontario' AND tb.LOWER_AMOUNT / 26 < p.gross_amount THEN\n" +
-                "                ((p.gross_amount - tb.LOWER_AMOUNT / 26) tb.TAX_RATE) / 100\n" +
-                "            ELSE 0 END) / COUNT(*), 2) AS tax_provincial\n" +
-                "    FROM\n" +
-                "        paystub p\n" +
-                "    JOIN\n" +
-                "        tax_brackets tb ON EXTRACT(YEAR FROM p.pay_date) = tb.year\n" +
-                "    GROUP BY\n" +
-                "        p.gross_amount");
+                "            ELSE 0 END) / COUNT(*) -\n" +
+                "        SUM(CASE WHEN tb.region = 'Ontario' AND tb.LOWER_AMOUNT / 26 < p.gross_amount THEN\n" +
+                "                ((p.gross_amount - tb.LOWER_AMOUNT / 26) * tb.TAX_RATE) / 100\n" +
+                "            ELSE 0 END) / COUNT(*) -\n" +
+                "        ROUND(0.057 * GREATEST(p.gross_amount * 26, 61400) / 26, 2) -\n" +
+                "        ROUND(0.0158 * GREATEST(p.gross_amount * 26, 60300) / 26, 2), 2) AS net_amount\n" +
+                "FROM\n" +
+                "    paystub p\n" +
+                "JOIN\n" +
+                "    tax_bracket tb ON EXTRACT(YEAR FROM p.pay_date) = tb.year\n" +
+                "GROUP BY\n" +
+                "    p.gross_amount");
             JOptionPane.showMessageDialog(null, "Successfully Populated tables!");
         } catch (SQLException e) {
             System.out.print("Failed to Populate One or More tables: ");
@@ -364,11 +375,6 @@ public class DatabaseOperationsPage extends javax.swing.JFrame {
                 "    PAY_DATE DATE NOT NULL,\n" +
                 "    GROSS_AMOUNT FLOAT(126) NOT NULL,\n" +
                 "    HOURS FLOAT(126) NOT NULL,\n" +
-                "    TAX_FED FLOAT(126) NOT NULL,\n" +
-                "    TAX_PROV FLOAT(126) NOT NULL,\n" +
-                "    CPP FLOAT(126) NOT NULL,\n" +
-                "    EI FLOAT(126) NOT NULL,\n" +
-                "    NET_AMOUNT FLOAT(126) NOT NULL,\n" +
                 "    STATUS VARCHAR2(20 BYTE) NOT NULL,\n" +
                 "    CONSTRAINT PAYSTUB_PK PRIMARY KEY (PAYSTUB_ID),\n" +
                 "    CONSTRAINT PAYSTUB_FK_EMPLOYEE FOREIGN KEY (EMPLOYEE_ID)\n" +
@@ -379,6 +385,9 @@ public class DatabaseOperationsPage extends javax.swing.JFrame {
                 "	GROSS_AMOUNT FLOAT(126), \n" +
                 "	TAX_FEDERAL FLOAT(126), \n" +
                 "	TAX_PROVINCIAL FLOAT(126),\n" +
+                "    CPP FLOAT(126) NOT NULL,\n" +
+                "    EI FLOAT(126) NOT NULL,\n" +
+                "    NET_AMOUNT FLOAT(126) NOT NULL,\n" +
                 "    CONSTRAINT PAYSTUB_CALCULATED_PK PRIMARY KEY (YEAR, GROSS_AMOUNT)\n" +
                 ")");
             JOptionPane.showMessageDialog(null, "Successfully CREATED tables!");
