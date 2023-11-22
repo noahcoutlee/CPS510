@@ -129,6 +129,7 @@ public class DatabaseOperationsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void DropTablesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropTablesButtonActionPerformed
+        // Drops one table at a time, if an SQL or other error occurs then the exception is caught and printed
         try {
             Statement stmt = MainClass.connection.createStatement();
             stmt.executeUpdate("DROP TABLE PAYSTUB_CALCULATED CASCADE CONSTRAINTS");
