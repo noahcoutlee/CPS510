@@ -35,6 +35,7 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
         CreatePaystubsButton = new javax.swing.JButton();
         MakeQueriesButton = new javax.swing.JButton();
         DatabaseOperationsButton = new javax.swing.JButton();
+        ManageDepartmentsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(500, 500));
@@ -72,6 +73,13 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
             }
         });
 
+        ManageDepartmentsButton.setText("Manage Departments");
+        ManageDepartmentsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManageDepartmentsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,10 +98,12 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CreatePaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MakeQueriesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DatabaseOperationsButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(ManageDepartmentsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(CreatePaystubsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(MakeQueriesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DatabaseOperationsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(180, 180, 180))
         );
         layout.setVerticalGroup(
@@ -108,10 +118,12 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(CreatePaystubsButton)
                 .addGap(18, 18, 18)
+                .addComponent(ManageDepartmentsButton)
+                .addGap(18, 18, 18)
                 .addComponent(MakeQueriesButton)
                 .addGap(18, 18, 18)
                 .addComponent(DatabaseOperationsButton)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,6 +152,14 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
     private void MakeQueriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MakeQueriesButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MakeQueriesButtonActionPerformed
+
+    private void ManageDepartmentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageDepartmentsButtonActionPerformed
+        // TODO add your handling code here:
+        AdminManageDepartments manageDepartmentsScreen = new AdminManageDepartments();
+        manageDepartmentsScreen.show();
+        
+        dispose();
+    }//GEN-LAST:event_ManageDepartmentsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +201,7 @@ public class PayrollAdminHomePage extends javax.swing.JFrame {
     private javax.swing.JButton CreatePaystubsButton;
     private javax.swing.JButton DatabaseOperationsButton;
     private javax.swing.JButton MakeQueriesButton;
+    private javax.swing.JButton ManageDepartmentsButton;
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JLabel WelcomeLabel;
     // End of variables declaration//GEN-END:variables

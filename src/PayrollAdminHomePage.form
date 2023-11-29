@@ -44,10 +44,13 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="CreatePaystubsButton" max="32767" attributes="0"/>
-                  <Component id="MakeQueriesButton" max="32767" attributes="0"/>
-                  <Component id="DatabaseOperationsButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="ManageDepartmentsButton" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="CreatePaystubsButton" max="32767" attributes="0"/>
+                      <Component id="MakeQueriesButton" max="32767" attributes="0"/>
+                      <Component id="DatabaseOperationsButton" alignment="1" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
           </Group>
@@ -66,10 +69,12 @@
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="CreatePaystubsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="ManageDepartmentsButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="MakeQueriesButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="DatabaseOperationsButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="290" max="32767" attributes="0"/>
+              <EmptySpace pref="249" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,6 +123,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DatabaseOperationsButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ManageDepartmentsButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage Departments"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ManageDepartmentsButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
