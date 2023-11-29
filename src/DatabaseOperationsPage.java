@@ -404,7 +404,10 @@ public class DatabaseOperationsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateTablesButtonActionPerformed
 
     private void QueryTablesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryTablesButtonActionPerformed
-        // To Do
+        QueryTablesPage tablesScreen = new QueryTablesPage();
+        tablesScreen.show();
+
+        dispose();
     }//GEN-LAST:event_QueryTablesButtonActionPerformed
 
     /**
