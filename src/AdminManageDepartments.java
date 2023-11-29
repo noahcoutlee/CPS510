@@ -194,14 +194,12 @@ public class AdminManageDepartments extends javax.swing.JFrame {
         String departmentName = DepartmentNameTextField.getText();
         int numOfEmployees = Integer.parseInt(NumberOfEmployeesTextField.getText());
         
-        String updateQuery = "UPDATE DEPARTMENT SET NAME = ?, NUMBER_OF_EMPLOYEES = ? WHERE DEPARTMENT_ID = ?";
-        try (var preparedStatement = MainClass.connection.prepareStatement(updateQuery)) {
-            preparedStatement.setString(1, departmentName);
-            preparedStatement.setInt(2, numOfEmployees);
-            preparedStatement.setInt(3, departmentID);
+        String updateQuery = "UPDATE DEPARTMENT SET NAME = '" + departmentName + "', NUMBER_OF_EMPLOYEES = " + numOfEmployees + " WHERE DEPARTMENT_ID = " + departmentID;
+        try {
+            Statement stmt = MainClass.connection.createStatement();
+            ResultSet rs = stmt.executeQuery(updateQuery);
 
-            int rowsUpdated = preparedStatement.executeUpdate();
-            if (rowsUpdated > 0) {
+            if (rs != null) {
                 System.out.println("Department updated successfully.");
                 JOptionPane.showMessageDialog(null, "Department updated successfully.");
             } else {
@@ -232,12 +230,12 @@ public class AdminManageDepartments extends javax.swing.JFrame {
         String departmentName = DepartmentNameTextField.getText();
         int numOfEmployees = Integer.parseInt(NumberOfEmployeesTextField.getText());
         
-        String updateQuery = "DELETE FROM DEPARTMENT WHERE DEPARTMENT_ID = ?";
-        try (var preparedStatement = MainClass.connection.prepareStatement(updateQuery)) {
-            preparedStatement.setInt(1, departmentID);
+        String updateQuery = "DELETE FROM DEPARTMENT WHERE DEPARTMENT_ID = "+departmentID;
+        try {
+            Statement stmt = MainClass.connection.createStatement();
+            ResultSet rs = stmt.executeQuery(updateQuery);
 
-            int rowsUpdated = preparedStatement.executeUpdate();
-            if (rowsUpdated > 0) {
+            if (rs != null) {
                 System.out.println("Department deleted successfully.");
                 JOptionPane.showMessageDialog(null, "Department deleted successfully.");
             } else {
@@ -267,14 +265,13 @@ public class AdminManageDepartments extends javax.swing.JFrame {
         String departmentName = DepartmentNameTextField.getText();
         int numOfEmployees = Integer.parseInt(NumberOfEmployeesTextField.getText());
         
-        String updateQuery = "INSERT INTO DEPARTMENT (DEPARTMENT_ID, NAME, NUMBER_OF_EMPLOYEES) VALUES (?, ?, ?)";
-        try (var preparedStatement = MainClass.connection.prepareStatement(updateQuery)) {
-            preparedStatement.setInt(1, departmentID);
-            preparedStatement.setString(2, departmentName);
-            preparedStatement.setInt(3, numOfEmployees);
-
-            int rowsUpdated = preparedStatement.executeUpdate();
-            if (rowsUpdated > 0) {
+        String updateQuery = "INSERT INTO DEPARTMENT (DEPARTMENT_ID, NAME, NUMBER_OF_EMPLOYEES) VALUES ("+departmentID+", '"+departmentName+"', "+numOfEmployees+")";
+        try {
+            
+            Statement stmt = MainClass.connection.createStatement();
+            ResultSet rs = stmt.executeQuery(updateQuery);
+            
+            if (rs != null) {
                 System.out.println("Department created successfully.");
                 JOptionPane.showMessageDialog(null, "Department created successfully.");
             } else {
@@ -325,8 +322,7 @@ public class AdminManageDepartments extends javax.swing.JFrame {
             e.printStackTrace();
         }
         
-        DepartmentNameTextField.setText("");
-        NumberOfEmployeesTextField.setText("");
+        
         DepartmentNameLabel.setVisible(true);
         DepartmentNameTextField.setVisible(true);
         NumberOfEmployeesLabel.setVisible(true);
@@ -340,6 +336,8 @@ public class AdminManageDepartments extends javax.swing.JFrame {
         } else {
             CreateNewButton.setVisible(true);
             DepartmentIDTextField.setEditable(false);
+            DepartmentNameTextField.setText("");
+            NumberOfEmployeesTextField.setText("");
             JOptionPane.showMessageDialog(null, "Department not found. Create new Department?");
         }
         

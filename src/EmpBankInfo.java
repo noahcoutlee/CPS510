@@ -1,5 +1,7 @@
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -173,15 +175,12 @@ public class EmpBankInfo extends javax.swing.JFrame {
         int accountNumber = Integer.parseInt(accountField.getText());
         int branchNumber = Integer.parseInt(branchField.getText());
         int employeeId = MainClass.loggedInEmployee.EMPLOYEE_ID;
-        String updateQuery = "UPDATE Employee SET bank_id = ?, branch_number = ?, account_number = ? WHERE employee_id = ?";
-        try (var preparedStatement = MainClass.connection.prepareStatement(updateQuery)) {
-            preparedStatement.setInt(1, bankId);
-            preparedStatement.setInt(2, branchNumber);
-            preparedStatement.setInt(3, accountNumber);
-            preparedStatement.setInt(4, employeeId);
+        String updateQuery = "UPDATE Employee SET bank_id = "+ bankId +", branch_number = "+ branchNumber +", account_number = "+ accountNumber +" WHERE employee_id = "+ employeeId +"";
+        try {
+            Statement stmt = MainClass.connection.createStatement();
+            ResultSet rs = stmt.executeQuery(updateQuery);
 
-            int rowsUpdated = preparedStatement.executeUpdate();
-            if (rowsUpdated > 0) {
+            if (rs != null) {
                 System.out.println("Employee record updated successfully.");
                 MainClass.loggedInEmployee.BANK_ID = bankId;
                 MainClass.loggedInEmployee.ACCOUNT_NUMBER = accountNumber;
