@@ -77,7 +77,6 @@ public class QueryTablesPage extends javax.swing.JFrame {
             tableModel2.addRow(rowData);
         }
         
-        initComponents();
         departmentTable.setModel(tableModel2);
         
         
@@ -108,7 +107,6 @@ public class QueryTablesPage extends javax.swing.JFrame {
             tableModel3.addRow(rowData);
         }
         
-        initComponents();
         TaxBracketTable.setModel(tableModel3);
         
         
@@ -170,7 +168,6 @@ public class QueryTablesPage extends javax.swing.JFrame {
             tableModel4.addRow(rowData);
         }
         
-        initComponents();
         employeeTable.setModel(tableModel4);
     }
 
@@ -273,15 +270,16 @@ public class QueryTablesPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backButton))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(backButton)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -331,8 +329,7 @@ public class QueryTablesPage extends javax.swing.JFrame {
     
     private List<Paystub> getPaystubsFromDatabase() {
         List<Paystub> paystubs = new ArrayList<>();
-        String sql = "SELECT pay_date, gross_amount, tax_federal, tax_provincial, CPP, EI, net_amount " +
-                         "FROM all_employee_paystub_view ";
+        String sql = "SELECT * FROM all_employee_paystub_view ";
             try (PreparedStatement preparedStatement = MainClass.connection.prepareStatement(sql)) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
@@ -354,13 +351,6 @@ public class QueryTablesPage extends javax.swing.JFrame {
 
         return paystubs;
     }
-    
-    
-    
-    
-    
-    
-    
     
     private List<Department> getDepartmentsFromDatabase() {
         List<Department> departments = new ArrayList<>();
@@ -386,7 +376,7 @@ public class QueryTablesPage extends javax.swing.JFrame {
             try (PreparedStatement preparedStatement = MainClass.connection.prepareStatement(sql)) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
-                        TaxBracket taxBracket = new TaxBracket(resultSet.getInt("TB_ID"), resultSet.getInt("Year"), resultSet.getString("Region"), resultSet.getInt("Lower_Amount"), resultSet.getInt("Upper_Ammount"), resultSet.getInt("Tax_Rate"));
+                        TaxBracket taxBracket = new TaxBracket(resultSet.getInt("TB_ID"), resultSet.getInt("Year"), resultSet.getString("Region"), resultSet.getInt("Lower_Amount"), resultSet.getInt("Upper_Amount"), resultSet.getInt("Tax_Rate"));
                         taxBrackets.add(taxBracket);
                     }
                 }
